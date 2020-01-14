@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
 
+const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
 const bookRouter = require('./routes/books');
@@ -19,7 +20,7 @@ app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(express.static('public'));
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
-
+app.use(methodOverride('_method'));
 //URL parser param might not be necessary
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
