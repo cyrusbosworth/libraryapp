@@ -21,7 +21,7 @@ app.use(expressLayouts);
 app.use(express.static('public'));
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
 app.use(methodOverride('_method'));
-//URL parser param might not be necessary
+
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
 

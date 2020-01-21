@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 		//res.redirect(`authors/${newAuthor.id}`);
 		res.redirect('/authors');
 	} catch (err) {
-		res.render('authors/new', { author: author, errorMessage: 'Error creating Author' });
+		res.render('authors/new', { author: author, errorMessage: 'Name required' });
 		console.log(err);
 	}
 });
@@ -47,9 +47,8 @@ router.get('/:id', async (req, res) => {
 		const books = await Book.find({ author: author.id })
 			.limit(6)
 			.exec();
-		res.render('authors/show', { author: author, books: books });
+		res.render('authors/show', { author: author, books: books, errorMessage: '' });
 	} catch (err) {
-		console.log(err);
 		res.redirect('/');
 	}
 });
@@ -80,7 +79,7 @@ router.put('/:id', async (req, res) => {
 		console.log(err);
 	}
 });
-//Delete Author
+
 router.delete('/:id', async (req, res) => {
 	let author;
 	try {
@@ -92,7 +91,11 @@ router.delete('/:id', async (req, res) => {
 		if (!author) {
 			res.redirect('/');
 		} else {
-			res.redirect(`/authors/${author.id}`);
+			const books = await Book.find({ author: author.id })
+				.limit(6)
+				.exec();
+			res.render('authors/show', { author: author, books: books, errorMessage: err });
+			// res.redirect(`/authors/${author.id}`);
 		}
 		console.log(err);
 	}

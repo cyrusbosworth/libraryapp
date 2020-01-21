@@ -1,0 +1,38 @@
+<h2>Search Results</h2>
+
+<% books.forEach(book => { %>
+
+  <div class="search-item">
+    <div class="search-heading">
+        <h3><%=book.title %> </h3>
+        <h3><%=book.author %> </h3>
+        <div>
+
+        </div>
+        <div class="search-desc">
+          <img src = <%= book.cover %> style="float: left" /> 
+          <div><%=book.description%>  <%=book.pageCount%> pages.  Published: <%=book.date%></div>
+
+        </div>
+
+
+        <form action='/books' method="POST">
+          <input name="title" value="<%=book.title%>" style="display: none"/>
+          <input name="author" value="<%=book.author%>" style="display: none"/>
+
+          <input name="publishDate" value="<%=book.date%>"style="display: none"/>
+          <input name="pageCount" value="<%=book.pageCount%>"style="display: none"/>
+
+          <input name="description" value="<%=book.description%>"style="display: none"/>
+
+          <input name="coverFile" value="<%=book.cover%>"style="display: none"/>
+
+          <button type="submit">Add Book</button>
+        </form>
+        
+      </div>
+
+  </div>
+ 
+
+<% }) %>

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const path = require('path');
 const coverImageBasePath = 'uploads/bookCovers';
+const Author = './author';
 
 const bookSchema = new mongoose.Schema({
 	title: {
@@ -12,11 +13,13 @@ const bookSchema = new mongoose.Schema({
 	},
 	publishDate: {
 		type: Date,
-		required: true
+		required: true,
+		default: Date.now
 	},
 	pageCount: {
 		type: Number,
-		required: true
+		required: true,
+		default: 1
 	},
 	createdAtDate: {
 		type: Date,
