@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 	let books = [];
 	try {
 		books = await Book.find()
-			.sort({ createdAt: 'desc' })
+			.sort({ createdAtDate: 'desc' })
 			.limit(10)
 			.exec();
 	} catch (err) {
@@ -30,7 +30,7 @@ router.get('/websearch', async (req, res) => {
 	const response = await axios.get(search);
 
 	const books = [];
-	console.log(response.data);
+
 	for (item of response.data.items) {
 		const book = {
 			title: item.volumeInfo.title,
@@ -38,16 +38,24 @@ router.get('/websearch', async (req, res) => {
 			date: item.volumeInfo.publishedDate,
 			pageCount: item.volumeInfo.pageCount,
 			author: item.volumeInfo.authors ? item.volumeInfo.authors[0] : '',
-			cover: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : ''
+			cover: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : '',
+			apiId: item.id
 		};
 		//check for empty values from api
 		if (Object.values(book).every(item => item)) {
+			book.descBlurb =
+				item.volumeInfo.description.length > 600
+					? item.volumeInfo.description.substr(0, 600) + '...'
+					: item.volumeInfo.description;
 			books.push(book);
 		}
 	}
-	console.log(books.length);
-	console.log(books);
-	res.render('searchResults', { books: books });
+
+	res.render('searchResults', {
+		books: books,
+		author: req.query.author,
+		title: req.query.title
+	});
 });
 
 module.exports = router;

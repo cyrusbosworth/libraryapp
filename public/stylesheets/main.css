@@ -9,28 +9,134 @@
 	box-sizing: border-box;
 }
 
-body {
-	font-family: Raleway, sans-serif;
+html body {
 	font-size: 20px;
-	color: var(--color-text-light);
+	color: black;
+	background-color: rgb(240, 240, 240);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.contents {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.content-box {
+	margin: auto;
+}
+
+.page-header {
+	font-size: 2rem;
+	font-weight: 600;
+	font-family: Raleway;
+	color: var(--color-background-dark);
+}
+
+.card-header {
+	color: black;
+}
+
+.card-body {
+	color: var(--color-background-dark);
+}
+
+.card-header a {
+	color: var(--color-background-dark);
+}
+
+.delete-button {
+	display: inline;
+}
+.delete-button button {
+	border: none;
+	color: black;
+	background: none;
+}
+.delete-button:hover button {
+	border: none;
+	color: red;
+}
+
+.list-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	flex-direction: row;
+	justify-content: center;
+}
+.list-item {
+	margin: 1.5rem;
+	width: 325px;
+}
+.author-list-item a {
+	color: darkblue;
+}
+h5 {
+	margin-bottom: 0;
+}
+
+.card-button {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	background-color: var(--color-background-dark);
+	color: white;
+}
+
+.mybtn-dark {
+	background-color: var(--color-background-dark);
+	color: white;
+}
+.mybtn-dark:hover {
+	color: white;
+	background-color: var(--color-background-light);
+}
+
+.card-button:hover {
+}
+.title {
+	font-weight: 600;
+	font-family: Raleway;
+	color: var(--color-background-dark);
+}
+
+.btn.mybtn {
+	font-size: 20px;
+}
+
+.error-message {
+	text-align: center;
+	width: 90vw;
+	margin: 2rem auto;
+	background-color: white;
+	font-size: 1.5rem;
+	color: darkred;
+	font-weight: 700;
+	padding: 1.5rem;
+	border: 0.1rem solid darkred;
+}
+
+.dark-card {
+	display: inline-flex;
+	min-width: 33vw;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	background: linear-gradient(
 		to right,
 		var(--color-background-dark),
 		var(--color-background-light)
 	);
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 1.5rem;
 }
 
-.container {
-	max-width: 1200px;
-	margin: auto;
-	margin-bottom: 3rem;
+.dark-card .btn {
+	margin: 1rem;
 }
-
-.inner-container {
-	margin: 0 2rem;
-}
-
-.page-header {
-	font-size: 2rem;
-	font-weight: 500;
+label {
+	color: white;
+	font-size: 16px;
+	margin: 0;
+	min-width: 200px;
 }

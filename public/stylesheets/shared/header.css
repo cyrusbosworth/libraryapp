@@ -1,22 +1,26 @@
+@import 'variables';
+
 :root {
-	--nav-title-font-size: 3rem;
+	--nav-title-font-size: 5rem;
 	--nav-title-font-weight: bold;
 	--nav-link-font-weight: 500;
 }
 
-.header-title {
-	color: var(--color-text-light);
-	text-decoration: none;
-	font-size: var(--nav-title-font-size);
-	font-weight: var(--nav-title-font-weight);
+.header-nav {
+	margin-bottom: 2.5rem;
+
+	widows: 100vw;
+	background-image: linear-gradient(
+		to right,
+		var(--color-background-dark),
+		var(--color-background-light)
+	);
 }
 
-.header-nav {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 5rem;
+.logo {
+	height: 100%;
+	padding: 1rem;
+	widows: 400px;
 }
 
 .header-nav ul {
@@ -24,15 +28,26 @@
 	margin: 0;
 	padding: 0;
 }
-
+.nav-contents {
+	margin: auto;
+	max-width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5rem;
+}
 .header-nav li {
 	list-style: none;
+	font-family: Raleway;
+	font-weight: 600;
 }
 .header-nav li a {
 	text-decoration: none;
 	color: var(--color-text-light);
-	font-weight: var(--nav-link-font-weight);
+
 	padding: 1rem;
+	font-size: 1.7rem;
 }
 
 .header-nav li a:hover,

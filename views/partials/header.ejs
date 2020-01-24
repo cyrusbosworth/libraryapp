@@ -1,11 +1,34 @@
 <header>
 	<nav class="header-nav">
-		<a class="header-title" href="/">Library</a>
+    <div class="nav-contents">
+		<a href="/"><div class="logo"><%-include('./logo.ejs')%></div></a>
 		<ul>
-			<li><a href="/authors">Authors</a></li>
-			<li><a href="/authors/new">Add Author</a></li>
-			<li><a href="/books">Books</a></li>
-			<li><a href="/books/new">Add Book</a></liclass="header-link">
+			<li><a href="/authors">My Authors</a></li>
+			<li><a href="/authors/new"><i class="material-icons">
+        library_add
+        </i></a></li>
+			<li><a href="/books">My Books</a></li>
+			<li><a href="/books/new"><i class="material-icons">
+        library_add
+        </i></a></liclass="header-link">
 		</ul>
-	</nav>
+  </div>
+</nav>
 </header>
+
+<style>
+  svg {
+    height: 75px;
+    fill: white;
+    width: auto;
+    stroke: white;
+    transition: ease-in .1s all;
+  }
+
+  svg #hardback {
+    stroke: white;
+    
+  }
+
+
+</style>

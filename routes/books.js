@@ -67,13 +67,22 @@ router.post('/', async (req, res) => {
 
 	if (req.body.cover) saveCover(book, req.body.cover);
 
-	if (req.body.coverFile) {
-		const image = await axios.get(req.body.coverFile, { responseType: 'arraybuffer' });
+	if (req.body.apiId) {
+		const bookDetail = await axios.get(
+			`https://www.googleapis.com/books/v1/volumes/${req.body.apiId}`
+		);
+
+		const image = await axios.get(
+			bookDetail.data.volumeInfo.imageLinks.medium ||
+				bookDetail.data.volumeInfo.imageLinks.thumbnail,
+			{
+				responseType: 'arraybuffer'
+			}
+		);
 
 		book.coverImage = new Buffer.from(image.data, 'base64');
 
 		book.coverImageType = 'image/jpeg';
-		console.log(book.coverImage);
 	}
 	try {
 		const newBook = await book.save();

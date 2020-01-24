@@ -1,7 +1,13 @@
-<h2 class="page-header">New Author</h2>
-
-<form action = "/authors" method = "POST">
+<div class="text-center">
+<h2 class="page-header">Add New Author</h2>
+<div class="dark-card">
+<form class="form-inline"action = "/authors" method = "POST">
   <%- include('_form_fields')%>
-  <a href="/authors">Cancel</a>
-  <button type = "submit">Create</button>
+  <button selected class="btn btn-light mybtn ml-3"type = "submit">Create</button>
+  <a href="/authors" class="btn btn-danger mybtn ml-3">Cancel</a>
+  
 </form>
+</div>
+
+
+</div>

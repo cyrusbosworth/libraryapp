@@ -1,38 +1,41 @@
-<h2>Search Results</h2>
+<h2 class ='page-header text-center'>Search Results for "<%=title%> <%=author%>"</h2>
 
 <% books.forEach(book => { %>
 
-  <div class="search-item">
-    <div class="search-heading">
-        <h3><%=book.title %> </h3>
-        <h3><%=book.author %> </h3>
-        <div>
 
-        </div>
-        <div class="search-desc">
-          <img src = <%= book.cover %> style="float: left" /> 
-          <div><%=book.description%>  <%=book.pageCount%> pages.  Published: <%=book.date%></div>
-
-        </div>
-
-
-        <form action='/books' method="POST">
-          <input name="title" value="<%=book.title%>" style="display: none"/>
-          <input name="author" value="<%=book.author%>" style="display: none"/>
-
-          <input name="publishDate" value="<%=book.date%>"style="display: none"/>
-          <input name="pageCount" value="<%=book.pageCount%>"style="display: none"/>
-
-          <input name="description" value="<%=book.description%>"style="display: none"/>
-
-          <input name="coverFile" value="<%=book.cover%>"style="display: none"/>
-
-          <button type="submit">Add Book</button>
-        </form>
-        
-      </div>
-
-  </div>
  
+  <div class="card mb-3" style="width: 90%; margin: auto" >
+    <div class="card-header"> <h4 class="mb-0"><%=book.title %> - <%=book.author %></h4> </div>
+    <div class="row no-gutters">
+      <div class="col-md-2">
+        <img src="<%= book.cover %>" class="card-img p-4" alt="Book cover" style="height: auto; width: 100%; "> 
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <!-- <h5 class="card-title"></h5> -->
+          <p class="card-text"><%=book.descBlurb%></p>
 
-<% }) %>
+  <form action='/books' method="POST">
+
+          <p class="card-text"><small class="text-muted"><%=book.pageCount%> pages.  Published: <%=book.date%></small></p>
+          
+    <input name="title" value="<%=book.title%>" style="display: none"/>
+    <input name="author" value="<%=book.author%>" style="display: none"/>
+
+    <input name="publishDate" value="<%=book.date%>"style="display: none"/>
+    <input name="pageCount" value="<%=book.pageCount%>"style="display: none"/>
+
+    <input name="description" value="<%=book.description%>"style="display: none"/>
+
+    <input name="apiId" value="<%=book.apiId%>"style="display: none"/>
+    <button type="submit" class="btn card-button">Add Book</button>
+    </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+<% }) %> 
+
