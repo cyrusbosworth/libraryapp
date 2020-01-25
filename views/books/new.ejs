@@ -1,6 +1,33 @@
-<h2 class="page-header">New Book</h2 class="page-header">
-<form action="/books" method="POST">
+<div class="text-center">
+  
+<h2 class="page-header">Add From Google</h2>
+
+
+<div class="dark-card">
+
+  <form action = "/websearch" method="GET">
+    <label>Author</label>
+    <input class="form-control" type="text" name="author" value="">
+    <label>Title</label>
+    <input class="form-control"type="text" name="title" value="">
+      <button type="submit" class="btn mybtn btn-light">Search</button>
+    </form>
+
+</div>
+<hr>
+  <h2 class="page-header">-or-</h2>
+<hr>
+
+
+<h2 class="page-header">Add Custom Details</h2>
+<div class="dark-card">
+<form  action="/books" method="POST">
 	<%- include('_form_fields')%>
-	<a href="/books">Cancel</a>
-	<button type="submit">Create</button>
+	
+  <button class="btn mybtn btn-light" type="submit">Create</button>
+  <a class="btn mybtn btn-danger" href="/books">Cancel</a>
 </form>
+
+</div>
+
+</div>

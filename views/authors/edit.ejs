@@ -1,6 +1,18 @@
+<div class="text-center">
 <h2 class="page-header">Edit Author</h2>
-<form action="/authors/<%=author.id%>?_method=PUT" method="POST">
+
+<div class="dark-card">
+
+
+
+<form class="form-inline" action="/authors/<%=author.id%>?_method=PUT" method="POST">
 	<%- include('_form_fields')%>
-	<a class="btn btn-primary" href="/authors/<%=author.id%>">Cancel</a>
-	<button class="btn btn-primary" type="submit">Update</button>
+	
+  <button class="btn btn-light mybtn ml-3" type="submit">Update</button>
+  <a class="btn btn-danger mybtn ml-3" href="/authors/<%=author.id%>">Cancel</a>
 </form>
+
+</div>
+
+</div>
+

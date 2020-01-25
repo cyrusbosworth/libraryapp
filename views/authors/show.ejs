@@ -1,5 +1,24 @@
 <div class="text-center">
 <h1 class="page-header"><%=author.name%></h1>
+
+<% if(books.length > 0) { %>
+  <h4 class = "title m-2">Books By Author</h4>
+
+
+<div class="list-container">
+<% books.forEach(book => { %>
+    <a href = "/books/<%=book.id%>">
+    <img class="m-2" height="150" width="100" src="<%=book.coverImagePath%>" />
+    </a>
+  <%});%> 
+
+
+
+</div>
+
+  
+  
+<%} %>
 <div class ="dark-card m-5">
   <a href="/authors/<%=author.id%>/edit"><div class="btn btn-light mybtn ">Edit</div></a>
   <a href="/websearch?author=<%=author.name%>"><div class="btn btn-light mybtn "><i class="material-icons" style="position: relative; top: 4px; font-size: 20px">
@@ -7,18 +26,5 @@
     </i> More </div></a>
 <%- include('../partials/delete_form', {url: `/authors/${author.id}`}) %> 
 </div>
-<% if(books.length > 0) { %>
-  <h4 class = "title">Books By Author</h4>
-  
-<% books.forEach(book => { %>
-    <a href = "/books/<%=book.id%>">
-    <img height="150" width="100" src="<%=book.coverImagePath%>" />
-    </a>
-  <%});%> 
 
-
-  </div>
-  
-<%} %>
-
-</div>
+</div></div>

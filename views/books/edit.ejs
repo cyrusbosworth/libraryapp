@@ -1,6 +1,15 @@
-<h2 class="page-header">Update Book</h2>
+<div class="text-center">
+  <h2 class="page-header">Update Book</h2 class="page-header">
+  
+  <div class="dark-card">
 <form action="/books/<%=book.id%>?_method=PUT" method="POST">
 	<%- include('_form_fields')%>
-	<a href="/books/<%=book.id%>">Cancel</a>
-	<button type="submit">Update</button>
+ 
+	
+  <button class="btn mybtn btn-light" type="submit">Create</button>
+  <a class="btn mybtn btn-danger" href="/books">Cancel</a>
 </form>
+
+</div>
+
+</div>

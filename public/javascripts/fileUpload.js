@@ -1,5 +1,3 @@
-console.log('hello');
-
 FilePond.registerPlugin(
 	FilePondPluginImagePreview,
 	FilePondPluginImageResize,
